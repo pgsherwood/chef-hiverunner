@@ -35,5 +35,29 @@ describe 'hiverunner::default' do
     )
   end
 
+  it 'creates a hiverunner hourly cron job' do
+    expect(chef_run).to create_cron('hiverunner_hourly').with(
+      user: 'hiverunner',
+      minute: '0'
+    )
+  end
+
+  it 'creates a hiverunner daily cron job' do
+    expect(chef_run).to create_cron('hiverunner_daily').with(
+      user: 'hiverunner',
+      hour: '0',
+      minute: '20'
+    )
+  end
+
+  it 'creates a hiverunner weekly cron job' do
+    expect(chef_run).to create_cron('hiverunner_weekly').with(
+      user: 'hiverunner',
+      weekday: '0',
+      hour: '0',
+      minute: '40'
+    )
+  end
+
 
 end
