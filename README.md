@@ -1,10 +1,22 @@
 # hiverunner-cookbook
 
-TODO: Enter the cookbook description here.
+Installs the [Hive Runner](https://github.com/bellycard/hiverunner) python script and its dependencies and creates cron jobs to run the script hourly, daily, and weekly.
 
 ## Supported Platforms
 
-TODO: List your supported platforms.
+Ubuntu 12.04
+
+## Requirements
+
+### APT Packages
+- python
+- python-pip
+- python-virtualenv
+- libmysqlclient-dev
+- python-dev
+
+### PIP Packages
+- hiverunner 
 
 ## Attributes
 
@@ -16,10 +28,10 @@ TODO: List your supported platforms.
     <th>Default</th>
   </tr>
   <tr>
-    <td><tt>['hiverunner']['bacon']</tt></td>
-    <td>Boolean</td>
-    <td>whether to include bacon</td>
-    <td><tt>true</tt></td>
+    <td><tt>['hiverunner']['install_dir']</tt></td>
+    <td>String</td>
+    <td>The installation directory for hiverunner and the associated python virtualenv</td>
+    <td><tt>/usr/local/hiverunner</tt></td>
   </tr>
 </table>
 
@@ -48,4 +60,4 @@ Include `hiverunner` in your node's `run_list`:
 
 ## License and Authors
 
-Author:: YOUR_NAME (<YOUR_EMAIL>)
+Author:: Greg Sherwood (pgscode@gmail.com)
