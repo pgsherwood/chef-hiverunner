@@ -8,16 +8,31 @@ describe 'hiverunner::default' do
     expect(chef_run).to include_recipe('apt')
   end  
 
-  it 'install python package' do
+  it 'installs python package' do
     expect(chef_run).to install_package('python')
   end
 
-  it 'install python-virtualenv package' do
+  it 'installs python-virtualenv package' do
     expect(chef_run).to install_package('python-virtualenv')
   end
 
-  it 'install python-pip package' do
+  it 'installs python-pip package' do
     expect(chef_run).to install_package('python-pip')
+  end
+
+  it 'creates a hiverunner group' do
+    expect(chef_run).to create_group('hiverunner').with(
+      system: true
+    )
+  end
+
+  it 'creates a hiverunner user' do
+    expect(chef_run).to create_user('hiverunner').with(
+      comment: 'Hiverunner User',
+      system: true,
+      gid: 'hiverunner',
+      shell: '/bin/false'
+    )
   end
 
 
