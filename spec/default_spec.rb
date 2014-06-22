@@ -1,12 +1,12 @@
-require 'chefspec'  
+require 'chefspec'
 require_relative 'spec_helper'
 
-describe 'hiverunner::default' do  
+describe 'hiverunner::default' do
   let(:chef_run) { ChefSpec::Runner.new.converge(described_recipe) }
 
   it 'includes the apt recipe' do
     expect(chef_run).to include_recipe('apt')
-  end  
+  end
 
   it 'installs python package' do
     expect(chef_run).to install_package('python')
@@ -58,6 +58,4 @@ describe 'hiverunner::default' do
       minute: '40'
     )
   end
-
-
 end

@@ -1,0 +1,11 @@
+
+
+Encoding:
+  Enabled: false
+
+
+SingleSpaceBeforeFirstArg:
+  Exclude:
+    - metadata.rb
+
+
